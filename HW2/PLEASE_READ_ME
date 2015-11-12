@@ -1,0 +1,20 @@
+1. To run bipartite k-means baseline approach with dev data:
+    python main.py
+2. To run bipartite k-means custom algorithm with dev data:
+    python main.py custom
+3. To run bipartite k-means with test data:
+    python main.py test
+4. To run analytics on the resulting clusters generated from the dev data:
+    python analyze_main.py # for baseline
+    python analyze_main.py custom # for custom
+    python analyze_main.py word outs/the_word_cluster_file_name # for translate word indexes in clusters into real words
+
+TIPS:
+1. All clustering results will be put in the "outs/" folder
+2. "outs_lee/" folder contains all results from my own runs
+3. "out_baseline" and "out_custom" contain the raw data used in the report
+4. "out_test" contains the test statistics
+5. "liruoyay-test-clusters.txt" comes from "outs_lee/test_4_word" resulting from experiment 4(see "out_test")
+6. Report is in "liruoyay_report.pdf"
+
+
