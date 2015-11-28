@@ -1,0 +1,31 @@
+1. Directory structure
+resources/ contains all the raw json files
+datasets/ contains the processed data in sparse matrix format
+models/ contains the learned models
+predictions/ contains the predictions based on models
+
+
+2. How to run (please run code in the root dir)
+
+# generate dictionaries for baseline model and hashing model
+python parser.py baseline|hashing resources/training_file.json
+
+# generate 10000 word dictionary
+./10000word.sh
+
+# generate the word-rating matrix for clustering
+python parser.py rating-word resources/training_file.json
+
+# run clustering
+python clustering.py
+
+# parse raw data into sparse matrices
+python parser.py parse baseline|hashing|cluster resources/training_file.json
+python parser.py parse baseline|hashing|cluster resources/dev_file.json
+python parser.py parse baseline|hashing|cluster resources/test_file.json
+
+# train
+python train_main.py baseline|hashing|cluster
+
+# predict
+python predict_main.py baseline|hashing|cluster train|dev|test
